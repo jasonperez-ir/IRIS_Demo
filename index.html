@@ -1,0 +1,306 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>IRIS Sales Demo Prototype</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar" aria-label="Demo navigation">
+        <div class="brand-block">
+          <div class="brand-mark">IRIS</div>
+          <div>
+            <p class="eyebrow">Sales Demo Prototype</p>
+            <h1>Harborview Senior Living Network</h1>
+          </div>
+        </div>
+
+        <div class="simulation-banner">
+          <strong>Simulated demo data</strong>
+          <span>No production IRIS data, repository changes, or deployment.</span>
+        </div>
+
+        <nav class="nav-list">
+          <button class="nav-item active" data-view="overview">Readiness Overview</button>
+          <button class="nav-item" data-view="advisor">IRIS Advisor</button>
+          <button class="nav-item" data-view="actions">Findings to Actions</button>
+          <button class="nav-item" data-view="program">Preparedness Program</button>
+          <button class="nav-item" data-view="validation">Validation Trends</button>
+          <button class="nav-item" data-view="spec">Demo Specification</button>
+        </nav>
+
+        <div class="architecture-card">
+          <p class="eyebrow">Approved Architecture</p>
+          <ol>
+            <li>Human: final authority</li>
+            <li>IRIS: intelligence model</li>
+            <li>vEM: operating system</li>
+            <li>Apps: workflows</li>
+            <li>Data: records and evidence</li>
+          </ol>
+        </div>
+      </aside>
+
+      <main>
+        <header class="topbar">
+          <div>
+            <p class="eyebrow">Operational EM-Oriented Demo</p>
+            <h2 id="view-title">Readiness Overview</h2>
+          </div>
+          <div class="topbar-actions">
+            <button class="secondary-button" id="reset-demo" type="button">Reset Demo</button>
+            <button class="primary-button" id="tour-toggle" type="button">Start Guided Walkthrough</button>
+          </div>
+        </header>
+
+        <section class="tour-panel hidden" id="tour-panel" aria-live="polite">
+          <div>
+            <p class="eyebrow">Guided Sales Walkthrough</p>
+            <h3 id="tour-title">Opening posture</h3>
+            <p id="tour-copy"></p>
+          </div>
+          <div class="tour-controls">
+            <button class="icon-button" id="tour-prev" type="button" aria-label="Previous walkthrough step">Prev</button>
+            <span id="tour-progress"></span>
+            <button class="icon-button" id="tour-next" type="button" aria-label="Next walkthrough step">Next</button>
+          </div>
+        </section>
+
+        <section class="view active" id="overview" data-title="Readiness Overview">
+          <div class="workspace-grid overview-grid">
+            <section class="panel score-panel">
+              <div class="panel-heading">
+                <div>
+                  <p class="eyebrow">Simulated Readiness</p>
+                  <h3>Organization posture</h3>
+                </div>
+                <span class="status-pill warning">Needs Focus</span>
+              </div>
+              <div class="score-wrap">
+                <div class="score-ring" style="--score: 67">
+                  <span>67</span>
+                </div>
+                <div>
+                  <p class="score-label">Demonstration score only</p>
+                  <p>
+                    IRIS has identified operational gaps affecting evacuation readiness,
+                    staffing continuity, and evidence currency across three communities.
+                  </p>
+                </div>
+              </div>
+              <div class="metric-strip">
+                <div><strong>3</strong><span>Communities</span></div>
+                <div><strong>214</strong><span>Residents</span></div>
+                <div><strong>126</strong><span>Staff</span></div>
+                <div><strong>7</strong><span>Open findings</span></div>
+              </div>
+            </section>
+
+            <section class="panel facility-panel">
+              <div class="panel-heading">
+                <div>
+                  <p class="eyebrow">Fictional Organization</p>
+                  <h3>Senior-living operating context</h3>
+                </div>
+              </div>
+              <div class="facility-visual" role="img" aria-label="Stylized diagram of three senior living communities and their readiness condition">
+                <div class="facility-node high">
+                  <span>North Haven</span>
+                  <strong>72</strong>
+                </div>
+                <div class="facility-node medium">
+                  <span>Bay Terrace</span>
+                  <strong>64</strong>
+                </div>
+                <div class="facility-node low">
+                  <span>Cypress Court</span>
+                  <strong>59</strong>
+                </div>
+                <div class="signal-line line-a"></div>
+                <div class="signal-line line-b"></div>
+              </div>
+            </section>
+
+            <section class="panel">
+              <div class="panel-heading">
+                <div>
+                  <p class="eyebrow">Priority Intelligence</p>
+                  <h3>What IRIS sees</h3>
+                </div>
+              </div>
+              <div class="priority-list" id="priority-list"></div>
+            </section>
+
+            <section class="panel">
+              <div class="panel-heading">
+                <div>
+                  <p class="eyebrow">Human Approval Boundary</p>
+                  <h3>Recommended next decisions</h3>
+                </div>
+              </div>
+              <div class="approval-lane">
+                <div>
+                  <span class="lane-label">IRIS may recommend</span>
+                  <p>Draft corrective actions, suggest review cadence, and explain risk significance.</p>
+                </div>
+                <div>
+                  <span class="lane-label human">Human must approve</span>
+                  <p>Operational truth, plan adoption, resource commitment, escalation, and readiness claims.</p>
+                </div>
+              </div>
+            </section>
+          </div>
+        </section>
+
+        <section class="view" id="advisor" data-title="Contextual IRIS Advisor">
+          <div class="workspace-grid advisor-grid">
+            <section class="panel advisor-main">
+              <div class="panel-heading">
+                <div>
+                  <p class="eyebrow">IRIS Advisor</p>
+                  <h3>Contextual operational guidance</h3>
+                </div>
+                <span class="status-pill">Advisory Only</span>
+              </div>
+              <div class="advisor-transcript" id="advisor-transcript"></div>
+              <div class="advisor-prompts" id="advisor-prompts"></div>
+            </section>
+            <section class="panel">
+              <div class="panel-heading">
+                <div>
+                  <p class="eyebrow">Reasoning Trace</p>
+                  <h3>Separated intelligence layers</h3>
+                </div>
+              </div>
+              <div class="trace-stack">
+                <div><strong>Records</strong><span>Plans, exercises, tasks, contacts</span></div>
+                <div><strong>Events</strong><span>What happened operationally</span></div>
+                <div><strong>Signals</strong><span>What the event may indicate</span></div>
+                <div><strong>IRIS synthesis</strong><span>Explainable advisory interpretation</span></div>
+                <div><strong>Human decision</strong><span>Approval, rejection, adjustment, escalation</span></div>
+              </div>
+            </section>
+          </div>
+        </section>
+
+        <section class="view" id="actions" data-title="Findings to Actions">
+          <div class="workspace-grid actions-grid">
+            <section class="panel">
+              <div class="panel-heading">
+                <div>
+                  <p class="eyebrow">Simulated Findings</p>
+                  <h3>Operational gaps</h3>
+                </div>
+              </div>
+              <div class="finding-list" id="finding-list"></div>
+            </section>
+            <section class="panel action-detail">
+              <div class="panel-heading">
+                <div>
+                  <p class="eyebrow">vEM Workflow</p>
+                  <h3 id="action-title">Select a finding</h3>
+                </div>
+              </div>
+              <div id="action-detail"></div>
+            </section>
+          </div>
+        </section>
+
+        <section class="view" id="program" data-title="Recurring Preparedness Program">
+          <div class="workspace-grid program-grid">
+            <section class="panel program-board">
+              <div class="panel-heading">
+                <div>
+                  <p class="eyebrow">Preparedness Program</p>
+                  <h3>90-day operational cadence</h3>
+                </div>
+              </div>
+              <div class="program-columns" id="program-columns"></div>
+            </section>
+            <section class="panel">
+              <div class="panel-heading">
+                <div>
+                  <p class="eyebrow">Cadence Logic</p>
+                  <h3>How IRIS sustains readiness</h3>
+                </div>
+              </div>
+              <div class="cadence-list">
+                <div><strong>Operational period</strong><span>Creates a reporting window and readiness snapshot.</span></div>
+                <div><strong>Preparedness initiative</strong><span>Anchors a strategic improvement effort.</span></div>
+                <div><strong>Evidence refresh</strong><span>Checks whether supporting documentation is current.</span></div>
+                <div><strong>Leadership review</strong><span>Requires accountable human acceptance before status changes.</span></div>
+              </div>
+            </section>
+          </div>
+        </section>
+
+        <section class="view" id="validation" data-title="Illustrative Validation Trends">
+          <div class="workspace-grid validation-grid">
+            <section class="panel trend-panel">
+              <div class="panel-heading">
+                <div>
+                  <p class="eyebrow">Illustrative Trends</p>
+                  <h3>Preparedness indicators over time</h3>
+                </div>
+                <span class="status-pill">Not Validated Claims</span>
+              </div>
+              <div class="trend-chart" id="trend-chart"></div>
+            </section>
+            <section class="panel">
+              <div class="panel-heading">
+                <div>
+                  <p class="eyebrow">Validation Guardrails</p>
+                  <h3>What this demo can and cannot claim</h3>
+                </div>
+              </div>
+              <div class="guardrail-list">
+                <div><strong>Can show</strong><span>How IRIS organizes evidence, trends, and readiness conversations.</span></div>
+                <div><strong>Cannot claim</strong><span>That simulated scores are independently validated measures of real-world readiness.</span></div>
+                <div><strong>Requires approval</strong><span>Any customer-facing certification, compliance assertion, or operational readiness attestation.</span></div>
+              </div>
+            </section>
+          </div>
+        </section>
+
+        <section class="view" id="spec" data-title="Scoped Sales-Demo Specification">
+          <div class="workspace-grid spec-grid">
+            <section class="panel">
+              <div class="panel-heading">
+                <div>
+                  <p class="eyebrow">Prototype Specification</p>
+                  <h3>What this sales demo is</h3>
+                </div>
+              </div>
+              <div class="spec-list">
+                <div><strong>Audience</strong><span>Operational emergency-management buyers and senior-living executives.</span></div>
+                <div><strong>Demo pattern</strong><span>Operational workspace with a guided sales walkthrough overlay.</span></div>
+                <div><strong>Fictional account</strong><span>Harborview Senior Living Network, three communities, simulated residents and staff.</span></div>
+                <div><strong>Primary story</strong><span>IRIS identifies readiness concerns, explains their significance, turns findings into actions, sustains a preparedness cadence, and tracks evidence-informed improvement.</span></div>
+                <div><strong>Implementation boundary</strong><span>Standalone local prototype only. No production IRIS changes and no deployment.</span></div>
+              </div>
+            </section>
+            <section class="panel">
+              <div class="panel-heading">
+                <div>
+                  <p class="eyebrow">Architecture Fit</p>
+                  <h3>Preserved IRIS/vEM model</h3>
+                </div>
+              </div>
+              <div class="architecture-map">
+                <div><span>Human</span><strong>Approves operational truth and decisions</strong></div>
+                <div><span>IRIS</span><strong>Reasons, interprets, synthesizes, advises</strong></div>
+                <div><span>vEM</span><strong>Runs workflows, records, tasks, programs, reporting</strong></div>
+                <div><span>Apps</span><strong>ReadyAssess, PlanBuilder, HSEEPBuilder-style workflows</strong></div>
+                <div><span>Data</span><strong>Profiles, risks, exercises, tasks, events, signals, evidence</strong></div>
+              </div>
+            </section>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
