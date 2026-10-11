@@ -3,31 +3,35 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>IRIS Sales Demo Prototype</title>
+    <title>IRIS | Senior Living Preparedness Demo</title>
+    <meta name="description" content="Explore IRIS preparedness intelligence and vEM workflows through a fictional senior-living organization. All data and advisor responses are simulated." />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
     <div class="app-shell">
       <aside class="sidebar" aria-label="Demo navigation">
         <div class="brand-block">
-          <div class="brand-mark">IRIS</div>
+          <img class="brand-logo" src="assets/iris-logo.png" alt="IRIS - Instinct Ready Intelligence System" />
           <div>
-            <p class="eyebrow">Sales Demo Prototype</p>
+            <p class="eyebrow">Interactive Sales Demo</p>
             <h1>Harborview Senior Living Network</h1>
           </div>
         </div>
 
         <div class="simulation-banner">
           <strong>Simulated demo data</strong>
-          <span>No production IRIS data, repository changes, or deployment.</span>
+          <span>Fictional organization. Prepared advisor responses. No live operational data.</span>
         </div>
 
         <nav class="nav-list">
-          <button class="nav-item active" data-view="overview">Readiness Overview</button>
+          <button class="nav-item active" data-view="overview">Readiness Snapshot</button>
           <button class="nav-item" data-view="advisor">IRIS Advisor</button>
-          <button class="nav-item" data-view="actions">Findings to Actions</button>
-          <button class="nav-item" data-view="program">Preparedness Program</button>
-          <button class="nav-item" data-view="validation">Validation Trends</button>
+          <button class="nav-item" data-view="actions">Improvement Map</button>
+          <button class="nav-item" data-view="plans">Plans &amp; Review</button>
+          <button class="nav-item" data-view="clarification">Clarification Queue</button>
+          <button class="nav-item" data-view="program">Program Cadence</button>
+          <button class="nav-item" data-view="validation">Preparedness Validation</button>
+          <button class="nav-item" data-view="conversation">Your Organization</button>
           <button class="nav-item" data-view="spec">Demo Specification</button>
         </nav>
 
@@ -46,29 +50,40 @@
       <main>
         <header class="topbar">
           <div>
-            <p class="eyebrow">Operational EM-Oriented Demo</p>
-            <h2 id="view-title">Readiness Overview</h2>
+            <p class="eyebrow">IRIS Preparedness Intelligence</p>
+            <h2 id="view-title" tabindex="-1">Readiness Snapshot</h2>
           </div>
           <div class="topbar-actions">
             <button class="secondary-button" id="reset-demo" type="button">Reset Demo</button>
-            <button class="primary-button" id="tour-toggle" type="button">Start Guided Walkthrough</button>
+            <button class="primary-button" id="tour-toggle" type="button">Guided Tour</button>
           </div>
         </header>
 
+        <section class="entry-band" id="entry-band" aria-label="Demo experience">
+          <div>
+            <h3>Harborview's next preparedness decision</h3>
+            <p>Three communities. Overnight staffing gaps. Evidence due for review.</p>
+          </div>
+          <div class="topbar-actions">
+            <button class="primary-button" id="start-tour" type="button">Take the Guided Tour</button>
+            <button class="secondary-button" id="explore-demo" type="button">Explore the Demo</button>
+          </div>
+        </section>
+
         <section class="tour-panel hidden" id="tour-panel" aria-live="polite">
           <div>
-            <p class="eyebrow">Guided Sales Walkthrough</p>
+            <p class="eyebrow">Harborview's Preparedness Story</p>
             <h3 id="tour-title">Opening posture</h3>
             <p id="tour-copy"></p>
           </div>
           <div class="tour-controls">
-            <button class="icon-button" id="tour-prev" type="button" aria-label="Previous walkthrough step">Prev</button>
+            <button class="icon-button" id="tour-prev" type="button" aria-label="Previous walkthrough step" title="Previous step">&#8592;</button>
             <span id="tour-progress"></span>
-            <button class="icon-button" id="tour-next" type="button" aria-label="Next walkthrough step">Next</button>
+            <button class="icon-button" id="tour-next" type="button" aria-label="Next walkthrough step" title="Next step">&#8594;</button>
           </div>
         </section>
 
-        <section class="view active" id="overview" data-title="Readiness Overview">
+        <section class="view active" id="overview" data-title="Readiness Snapshot">
           <div class="workspace-grid overview-grid">
             <section class="panel score-panel">
               <div class="panel-heading">
@@ -76,25 +91,24 @@
                   <p class="eyebrow">Simulated Readiness</p>
                   <h3>Organization posture</h3>
                 </div>
-                <span class="status-pill warning">Needs Focus</span>
+                <span class="status-pill warning">Insufficient evidence</span>
               </div>
               <div class="score-wrap">
-                <div class="score-ring" style="--score: 67">
-                  <span>67</span>
-                </div>
                 <div>
-                  <p class="score-label">Demonstration score only</p>
+                  <p class="score-label">Advisory, evidence-informed snapshot</p>
                   <p>
-                    IRIS has identified operational gaps affecting evacuation readiness,
-                    staffing continuity, and evidence currency across three communities.
+                    Evacuation ownership needs review. Medication continuity has no current test evidence.
+                    Overall validation is not established; missing evidence is not proof of failure.
                   </p>
+                  <p>Evidence sufficiency: Insufficient. Strength: Not yet established. No overall index issued.</p>
+                  <button class="secondary-button" data-go="clarification">Review missing evidence</button>
                 </div>
               </div>
               <div class="metric-strip">
                 <div><strong>3</strong><span>Communities</span></div>
                 <div><strong>214</strong><span>Residents</span></div>
                 <div><strong>126</strong><span>Staff</span></div>
-                <div><strong>7</strong><span>Open findings</span></div>
+                <div><strong>4</strong><span>Open findings</span></div>
               </div>
             </section>
 
@@ -105,18 +119,18 @@
                   <h3>Senior-living operating context</h3>
                 </div>
               </div>
-              <div class="facility-visual" role="img" aria-label="Stylized diagram of three senior living communities and their readiness condition">
+              <div class="facility-visual" role="img" aria-label="Three fictional communities: North Haven has limited evidence, Bay Terrace has a review due, and Cypress Court has insufficient evidence">
                 <div class="facility-node high">
                   <span>North Haven</span>
-                  <strong>72</strong>
+                  <strong>Limited evidence</strong>
                 </div>
                 <div class="facility-node medium">
                   <span>Bay Terrace</span>
-                  <strong>64</strong>
+                  <strong>Review due</strong>
                 </div>
                 <div class="facility-node low">
                   <span>Cypress Court</span>
-                  <strong>59</strong>
+                  <strong>Insufficient evidence</strong>
                 </div>
                 <div class="signal-line line-a"></div>
                 <div class="signal-line line-b"></div>
@@ -164,7 +178,8 @@
                 </div>
                 <span class="status-pill">Advisory Only</span>
               </div>
-              <div class="advisor-transcript" id="advisor-transcript"></div>
+              <p class="advisor-label">Simulated advisor responses</p>
+              <div class="advisor-transcript" id="advisor-transcript" aria-live="polite"></div>
               <div class="advisor-prompts" id="advisor-prompts"></div>
             </section>
             <section class="panel">
@@ -185,7 +200,7 @@
           </div>
         </section>
 
-        <section class="view" id="actions" data-title="Findings to Actions">
+        <section class="view" id="actions" data-title="Improvement Map">
           <div class="workspace-grid actions-grid">
             <section class="panel">
               <div class="panel-heading">
@@ -208,7 +223,36 @@
           </div>
         </section>
 
-        <section class="view" id="program" data-title="Recurring Preparedness Program">
+        <section class="view" id="plans" data-title="Plans & Review">
+          <section class="panel">
+            <p class="eyebrow">Harborview / Evacuation capability / Simulated plan record</p>
+            <h3>Emergency Operations Plan</h3>
+            <div class="trace-stack">
+              <div><strong>Plan lifecycle: Active</strong><span>Owner: Community administrators. Scope: All three communities.</span></div>
+              <div><strong>Review condition: Overdue</strong><span>Review due: September 30, 2026. This does not change the active plan's lifecycle.</span></div>
+              <div><strong>Authoritative document: EOP v2.1</strong><span>Human-authored; adopted November 10, 2025. An IRIS draft never replaces this version without adoption.</span></div>
+            </div>
+            <button class="secondary-button" data-source="plan">Open document evidence</button>
+            <button class="secondary-button" data-go="validation">Evacuation capability</button>
+            <div id="plan-review" class="trace-stack" aria-live="polite"></div>
+            <div class="topbar-actions"><button class="primary-button" id="review-next">Begin simulated review</button><button class="secondary-button" id="review-reset">Reset review</button></div>
+          </section>
+        </section>
+
+        <section class="view" id="clarification" data-title="Clarification Queue">
+          <section class="panel">
+            <p class="eyebrow">Simulated uncertainty / Medication continuity</p>
+            <h3>What evidence is available for emergency refrigeration?</h3>
+            <p>The procedure is documented, but a recent performance test was not supplied. IRIS cannot infer that refrigeration will work or that it has failed.</p>
+            <button class="secondary-button" data-source="cold-chain">Open source record</button>
+            <fieldset><legend>Demo administrator response</legend><label><input type="radio" name="clarification-response" value="unknown" checked /> Unknown / not yet provided</label><label><input type="radio" name="clarification-response" value="reported" /> Staff reports that a test occurred; record unavailable</label></fieldset>
+            <button class="primary-button" id="save-clarification">Confirm simulated response</button>
+            <p id="clarification-result" aria-live="polite">Unresolved. Direct performance evidence is missing.</p>
+            <button class="secondary-button" data-go="actions">Related improvement recommendation</button>
+          </section>
+        </section>
+
+        <section class="view" id="program" data-title="Program Cadence">
           <div class="workspace-grid program-grid">
             <section class="panel program-board">
               <div class="panel-heading">
@@ -236,17 +280,29 @@
           </div>
         </section>
 
-        <section class="view" id="validation" data-title="Illustrative Validation Trends">
+        <section class="view" id="validation" data-title="Preparedness Validation">
+          <section class="panel">
+            <p class="eyebrow">Simulated critical capability</p>
+            <h3>Evacuation and resident accountability</h3>
+            <p>Capability progression: Defined. Evidence sufficiency: Limited. Organizational validation decision: Not yet established.</p>
+            <p>Defined → Trained → Exercised → Demonstrated → Improved → Sustained</p>
+            <p>The June tabletop exposed missing overnight ownership. Participation alone does not demonstrate successful evacuation. A corrected matrix needs implementation evidence and a relevant retest before improvement can be validated.</p>
+            <button class="secondary-button" data-source="exercise">Exercise observation</button>
+            <button class="secondary-button" data-go="plans">Related plan</button>
+            <button class="secondary-button" data-go="actions">Related improvement</button>
+            <div id="validation-dimensions" class="trace-stack"></div>
+          </section>
           <div class="workspace-grid validation-grid">
             <section class="panel trend-panel">
               <div class="panel-heading">
                 <div>
                   <p class="eyebrow">Illustrative Trends</p>
-                  <h3>Preparedness indicators over time</h3>
+                  <h3>Activity indicators, not a validation score</h3>
                 </div>
                 <span class="status-pill">Not Validated Claims</span>
               </div>
               <div class="trend-chart" id="trend-chart"></div>
+              <p class="demo-footnote">Illustrative prior-period to current-period activity ratios, not Harborview results. Evidence currency falls as records age. Completed work still needs retesting; AI inference earns no validation credit.</p>
             </section>
             <section class="panel">
               <div class="panel-heading">
@@ -258,7 +314,7 @@
               <div class="guardrail-list">
                 <div><strong>Can show</strong><span>How IRIS organizes evidence, trends, and readiness conversations.</span></div>
                 <div><strong>Cannot claim</strong><span>That simulated scores are independently validated measures of real-world readiness.</span></div>
-                <div><strong>Requires approval</strong><span>Any customer-facing certification, compliance assertion, or operational readiness attestation.</span></div>
+                <div><strong>Human decision</strong><span>Evidence-based validation requires an authorized review. Approval alone cannot create evidence; IRIS does not certify compliance or guarantee readiness.</span></div>
               </div>
             </section>
           </div>
@@ -278,7 +334,7 @@
                 <div><strong>Demo pattern</strong><span>Operational workspace with a guided sales walkthrough overlay.</span></div>
                 <div><strong>Fictional account</strong><span>Harborview Senior Living Network, three communities, simulated residents and staff.</span></div>
                 <div><strong>Primary story</strong><span>IRIS identifies readiness concerns, explains their significance, turns findings into actions, sustains a preparedness cadence, and tracks evidence-informed improvement.</span></div>
-                <div><strong>Implementation boundary</strong><span>Standalone local prototype only. No production IRIS changes and no deployment.</span></div>
+                <div><strong>Implementation boundary</strong><span>Standalone public sales demo with simulated data and prepared advisor responses. No connection to production IRIS.</span></div>
               </div>
             </section>
             <section class="panel">
@@ -298,9 +354,27 @@
             </section>
           </div>
         </section>
+
+        <section class="view" id="conversation" data-title="IRIS for Your Organization">
+          <section class="conversation-band">
+            <p class="eyebrow">Your Preparedness Program</p>
+            <h3>Join the IRIS waitlist</h3>
+            <p>Stay informed about IRIS availability for your organization's preparedness program.</p>
+            <p>IRIS intelligence and vEM workflows support clearer priorities, accountable follow-through, and evidence reviews, with your team retaining approval authority.</p>
+            <div class="topbar-actions">
+              <a class="primary-button hidden" id="waitlist-link" rel="noopener noreferrer" target="_blank">Join the Waitlist</a>
+              <a class="secondary-button hidden" id="preorder-link" rel="noopener noreferrer" target="_blank">Preorder at a Discount</a>
+            </div>
+            <p class="hidden" id="preorder-offer"></p>
+            <button class="secondary-button" id="continue-exploring" type="button">Return to Readiness</button>
+          </section>
+          <p class="demo-footnote">Harborview and all results are fictional. Illustrative trends are not real customer outcomes or validated readiness claims.</p>
+        </section>
       </main>
     </div>
+    <dialog id="evidence-dialog" aria-labelledby="evidence-title"><h3 id="evidence-title"></h3><div id="evidence-body"></div><form method="dialog"><button class="secondary-button">Close evidence</button></form></dialog>
 
+    <script src="demo-config.js"></script>
     <script src="app.js"></script>
   </body>
 </html>
